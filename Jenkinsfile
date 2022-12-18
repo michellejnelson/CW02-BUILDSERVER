@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("mnelso204/cw02:1.0")
+        app = docker.build("mnelso204/cw02")
     }
 
     stage('Test image') {
@@ -29,7 +29,8 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push()
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
         }
     }
 }
