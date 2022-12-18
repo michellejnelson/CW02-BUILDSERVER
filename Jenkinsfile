@@ -29,6 +29,6 @@ node {
 
     sshagent(['my-ssh-key']) {
 
-       sh 'ssh ubuntu@44.198.182.225 kubectl set image deployments/cw02 cw02=mnelso204/cw02:$BUILD_NUMBER'
+       sh 'ssh ubuntu@54.157.11.119 kubectl set image deployments/cw02 cw02=mnelso204/cw02:$BUILD_NUMBER'
    }
 }
